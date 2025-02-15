@@ -1,18 +1,16 @@
+import image from "../assets/news.jpg";
 
-import image from "../assets/news.jpg"
-const NewsItem= ({title,description,src,url})=>
-    {
-      return(
-        <div className="card bg-dark mb-3 mt-3 text-light d-inline-block my-2 mx-5 px-2 px-2" style={{maxWidth:"340px"}}>
-        <img src={src?src:image} style={{height:"200px",width:"320px"}}className="card-img-top" alt="..." />
-        <div className="card-body">
-          <h5 className="card-title">{title.slice(0,50)}</h5>
-          <p className="card-text">{description?description.slice(0,50):"The News"}</p>
-          <a href={url}className="btn btn-primary">Read More</a>
+const NewsItem = ({ title, description, src, url }) => {
+    return (
+        <div className="card bg-dark text-light shadow-lg rounded overflow-hidden mx-2 my-2 px-3 px-3">
+            <img src={src ? src : image} className="card-img-top img-fluid" alt="news" />
+            <div className="card-body">
+                <h5 className="card-title">{title ? title.slice(0, 50) + "..." : "Untitled"}</h5>
+                <p className="card-text">{description ? description.slice(0, 80) + "..." : "No description available."}</p>
+                <a href={url} target="_blank" rel="noopener noreferrer" className="btn btn-primary w-100">Read More</a>
+            </div>
         </div>
-      </div>
-      ) 
-    }
-    
-    export default NewsItem;
-    
+    );
+};
+
+export default NewsItem;
